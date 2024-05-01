@@ -1,0 +1,54 @@
+:root {
+    --red-color: rgb(255, 70, 37);
+    --blue-color: rgb(44, 135, 255);
+    --white-color: white;
+    --grey-color: #888
+}
+
+
+
+.scoreboard{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 20rem;
+    font-size: 1.5em;
+    background-color: var(--white-color);
+    margin: 3rem auto;
+    box-shadow: 0px 0px 8px var(--grey-color);
+    border-radius: 0.5rem;
+    font-weight: bold;
+
+}
+
+.score {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.x-score {
+    color: var(--red-color);
+    border-bottom: 5px solid var(--red-color);
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.o-score {
+    color: var(--blue-color);
+    border-bottom: 5px solid var(--blue-color);
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.inactive {
+    border-bottom: 5px solid transparent;
+}
+
+.player-turn {
+    color: var(--red-color);
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

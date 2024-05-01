@@ -1,0 +1,51 @@
+:root {
+    --background-color: rgb(1, 110, 255);
+    --white-color: white;
+    --hover-color: rgb(10, 10, 228);
+    --grey-color: #888;
+}
+
+
+.reset-btn {
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--background-color);
+    color: var(--white-color);
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    margin:  2rem auto;
+    display: block;
+}
+
+.reset-btn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 12px var(--grey-color);
+    transition: 0.5s ease;
+}
+
+.start-btn {
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 30px;
+
+}
+
+.back {
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+   top: 20px;
+   left: 20px;
+   position: fixed;
+   z-index: 999;
+}
+
+.back:hover {
+     background-color: rgb(185, 185, 189);
+    box-shadow: 0 0 12px var(--grey-color);
+    transition: 0.5s ease;
+}

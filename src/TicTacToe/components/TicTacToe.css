@@ -1,0 +1,52 @@
+:root {
+   
+    --color-white: white;
+    --color-grey: #888;
+    --red-color: rgb(255, 70, 37);
+    --blue-color: rgb(44, 135, 255);
+}
+
+body {
+  
+}
+
+.body-container {
+  
+  background-size: cover;
+
+}
+
+.board-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+
+.cellClass, .button {
+    background-color: var(--color-white);
+    border: none;
+    border-radius: 10%;
+    box-shadow: 0px 0px 8px var(--color-grey);
+    width: 5rem;
+    height: 5rem;
+    text-align: center;
+    font-size: 5em;
+    font-family: "Fredoka", sans-serif;
+    font-weight: bold;
+    line-height: 5rem;
+    margin: 0.5rem;
+    
+}
+
+.x {
+    color: var(--red-color);
+}
+
+.o {
+    color: var(--blue-color);
+}
+
+.cellClass:hover {
+    box-shadow: 0px 0px 15px var(--color-grey);
+}
