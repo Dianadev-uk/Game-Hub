@@ -18,8 +18,9 @@ const Sudoku = () => {
   const [sudokuArr, setSudokuArr] = useState([]);
   const [sudokuBoard, setSudokuBoard] = useState([]);
 
-  useEffect(() => {
+  const makePuzzle = () => {
     const newBoard = sudoku.makepuzzle();
+    console.log(newBoard);
     if (Array.isArray(newBoard) && newBoard.length === 81) {
       const puzzle = [];
       for (let i = 0; i < 9; i++) {
@@ -32,6 +33,10 @@ const Sudoku = () => {
     } else {
       console.error("Invalid format for newBoard:", newBoard);
     }
+  };
+
+  useEffect(() => {
+    makePuzzle();
   }, []);
 
   function onInputChange(e, row, col) {
@@ -46,7 +51,7 @@ const Sudoku = () => {
   }
 
   function resetSudoku() {
-    setSudokuArr(initial.map((row) => [...row]));
+    makePuzzle();
   }
 
   function checkSudoku() {
@@ -61,9 +66,11 @@ const Sudoku = () => {
   function solveSudoku() {
     const flattenedBoard = sudokuArr
       .flat()
-      .map((cell) => (cell === -1 ? 0 : cell));
+      .map((cell) => (cell === -1 ? null : cell));
     console.log("Flattened Board Before Solving:", flattenedBoard);
     const solvedBoard = sudoku.solvepuzzle(flattenedBoard);
+
+    console.log(solvedBoard);
 
     if (solvedBoard) {
       console.log("Solved Board:", solvedBoard);
@@ -72,16 +79,14 @@ const Sudoku = () => {
         solvedGrid.push(solvedBoard.slice(i * 9, (i + 1) * 9));
       }
       console.log("Solved Grid:", solvedGrid);
-      
-      setSudokuBoard([solvedGrid]);
-      
-    } 
-  }
-  
-   const handleBack = () => {
-     window.location.href = "/";
-   };
 
+      setSudokuArr([...solvedGrid]);
+    }
+  }
+
+  const handleBack = () => {
+    window.location.href = "/";
+  };
 
   return (
     <div className="App-header">
@@ -102,7 +107,6 @@ const Sudoku = () => {
                     onChange={(e) => onInputChange(e, rIndex, cIndex)}
                     value={cell === -1 ? "" : cell}
                     className="cellInput"
-                    disabled={initial[rIndex][cIndex] !== -1}
                   />
                 </td>
               ))}
@@ -121,7 +125,9 @@ const Sudoku = () => {
           Reset
         </button>
         <div>
-          <button className="back-button" onClick={handleBack}>Main Page ⬅️</button>
+          <button className="back-button" onClick={handleBack}>
+            Main Page ⬅️
+          </button>
         </div>
       </div>
     </div>
